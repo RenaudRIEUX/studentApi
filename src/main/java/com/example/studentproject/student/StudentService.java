@@ -48,4 +48,9 @@ public class StudentService {
     }
 
 
+    public Student findStudent(String studentId) {
+        long parsedStudentId = Long.parseLong(studentId);
+        return this.studentRepository.findById(parsedStudentId).orElseThrow(()-> new IllegalArgumentException());
+
+    }
 }

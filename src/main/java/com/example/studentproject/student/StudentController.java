@@ -17,6 +17,11 @@ public class StudentController {
         return this.studentService.getStudents();
     }
 
+    @GetMapping("findStudent/{studentId}")
+    public Student findStudent(@PathVariable String studentId){
+        return this.studentService.findStudent(studentId);
+    }
+
     @PostMapping("/addStudent")
     public void addStudent(@RequestBody Student student){
         this.studentService.addStudent(student);
@@ -25,15 +30,11 @@ public class StudentController {
     @DeleteMapping("/delete/{studentId}")
     public void deleteStudent(@PathVariable String studentId){
         this.studentService.deleteStudent(studentId);
-
     }
 
     @PutMapping("modify/{studentId}")
     public void modifyStudent(@PathVariable String studentId, @RequestBody Student student){
         this.studentService.modifyStudent(studentId, student);
     }
-//    @RequestMapping(value = "/delete/{studentId}", method = RequestMethod.DELETE)
-//    public void deleteStudent(@PathVariable String studentId){
-//        this.studentService.deleteStudent(studentId);
-//    }
+
 }
